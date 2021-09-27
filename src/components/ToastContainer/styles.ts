@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // interface TouastProps {
 //     type?: 'success' | 'info' | 'error'
@@ -28,7 +28,7 @@ export const Container = styled.div`
     top: 0;
     padding: 30px;
     overflow: hidden;
-`
+`;
 
 // export const Toast = styled.div<TouastProps>`
 //     width:  360px;

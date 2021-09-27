@@ -1,45 +1,42 @@
-import React, {useEffect} from 'react'
-import { FiAlertCircle, FiCheckCircle, FiInfo, FiXCircle} from 'react-icons/fi'
-import { ToastMessageData, useToast } from '../../../Contexts/ToastContext'
+import React, { useEffect } from 'react';
 import {
-    Container
-} from './styles'
+    FiAlertCircle,
+    FiCheckCircle,
+    FiInfo,
+    FiXCircle,
+} from 'react-icons/fi';
+import { ToastMessageData, useToast } from '../../../Contexts/ToastContext';
+import { Container } from './styles';
 
 interface ToastProps {
-    message : ToastMessageData,
-    style: object
-    duration?: number
+    message: ToastMessageData;
+    style: object;
+    duration?: number;
 }
 
 const icons = {
     info: <FiInfo size={24} />,
     success: <FiCheckCircle size={24} />,
-    error: <FiAlertCircle size={24} />
+    error: <FiAlertCircle size={24} />,
+};
 
-}
-
-const Toast : React.FC<ToastProps> = ({message, style, duration}) =>{
-
-    const { removeToast } = useToast()
+const Toast: React.FC<ToastProps> = ({ message, style, duration }) => {
+    const { removeToast } = useToast();
     useEffect(() => {
-
         const timer = setTimeout(() => {
-            removeToast(message.id)
-        }, duration || 3000)
+            removeToast(message.id);
+        }, duration || 3000);
 
-
-        return () =>{
-            clearTimeout(timer)
-        }
-
-    },[message.id, removeToast])
-
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [message.id, removeToast]);
 
     return (
         <Container
-          type={message.type}
-          hasDescription={!!message.description}
-          style={style}
+            type={message.type}
+            hasDescription={!!message.description}
+            style={style}
         >
             {icons[message.type || 'info']}
             <div>
@@ -52,6 +49,6 @@ const Toast : React.FC<ToastProps> = ({message, style, duration}) =>{
             </button>
         </Container>
     );
-}
+};
 
-export default Toast
+export default Toast;

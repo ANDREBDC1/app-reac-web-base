@@ -5,7 +5,6 @@ export const Container = styled.div`
     display: flex;
     place-content: center;
     align-items: center;
-
 `;
 
 export const Content = styled.div`
@@ -17,14 +16,12 @@ export const Content = styled.div`
     height: 100%;
     max-height: 400px;
 
-    form{
+    form {
         width: 100%;
         height: 100%;
     }
 
-    h2{
+    h2 {
         margin-bottom: 8px;
     }
-
 `;
-
